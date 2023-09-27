@@ -8,7 +8,7 @@ document
     const quantidadeProduto =
       document.getElementById("quantidadeProduto").value;
 
-    if (nomeProduto === "" || quantidadeProduto === "") {
+    if (nomeProduto === " " || quantidadeProduto === " ") {
       alert("Por Favor ! Preencha todos os campos");
       return;
     }
@@ -20,7 +20,7 @@ document
 
     itemProduto.push(itensProduto);
 
-    const tabela = document
+   const tabela = document
       .getElementById("ProdutosCadastrados")
       .getElementsByTagName("tbody")[0];
 
