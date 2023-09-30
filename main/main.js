@@ -8,7 +8,7 @@ document
     const quantidadeProduto =
       document.getElementById("quantidadeProduto").value;
 
-    if (nomeProduto === " " || quantidadeProduto === " ") {
+    if (nomeProduto === "" || quantidadeProduto === "") {
       alert("Por Favor ! Preencha todos os campos");
       return;
     }
@@ -49,7 +49,8 @@ function EnviarWhattapp() {
   let mensagem = "Lista de Produtos:\n";
 
   for (let i = 0; i < itemProduto.length; i++) {
-    mensagem += ` Produto: ${itemProduto[i].nomeProduto},Quantidade: ${itemProduto[i].quantidadeProduto}\n`;
+    mensagem += ` Produto: ${itemProduto[i].nomeProduto},
+    Quantidade: ${itemProduto[i].quantidadeProduto}\n`;
   }
 
   const numeroWhatsApp = numeroCelular;
