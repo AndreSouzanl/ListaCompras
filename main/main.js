@@ -3,9 +3,7 @@
     let modoEdicao = false;
     let itemEditandoIndex = null;
 
-    document
-      .getElementById("adicionarProduto")
-      .addEventListener("click", function () {
+      document.getElementById("adicionarProduto").addEventListener("click", function () {
         const nomeProduto = document.getElementById("nomeProduto").value;
         const quantidadeProduto =
           document.getElementById("quantidadeProduto").value;
@@ -35,28 +33,31 @@
         document.getElementById("quantidadeProduto").value = "";
       });
 
-    function EnviarWhattapp() {
-      if (itemProduto.length === 0) {
-        alert("Nenhum produto cadastrado para enviar via WhatsApp.");
-        return;
+
+      function EnviarWhattapp() {
+        if (itemProduto.length === 0) {
+          alert("Nenhum produto cadastrado para enviar via WhatsApp.");
+          return;
+        }
+  
+        let mensagem = "Lista de Produtos:\n";
+  
+        for (let i = 0; i < itemProduto.length; i++) {
+          mensagem += `Produto: ${itemProduto[i].nomeProduto},\nQuantidade: ${itemProduto[i].quantidadeProduto}\n`;
+        }
+  
+        const numeroWhatsApp = numeroCelular;
+  
+        // Encode a mensagem para que seja uma URL válida
+        mensagem = encodeURIComponent(mensagem);
+  
+        // Crie o link WhatsApp com o número de telefone e a mensagem
+        const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
+  
+        window.open(linkWhatsApp, "_blank");
       }
 
-      let mensagem = "Lista de Produtos:\n";
-
-      for (let i = 0; i < itemProduto.length; i++) {
-        mensagem += `Produto: ${itemProduto[i].nomeProduto},\nQuantidade: ${itemProduto[i].quantidadeProduto}\n`;
-      }
-
-      const numeroWhatsApp = numeroCelular;
-
-      // Encode a mensagem para que seja uma URL válida
-      mensagem = encodeURIComponent(mensagem);
-
-      // Crie o link WhatsApp com o número de telefone e a mensagem
-      const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
-
-      window.open(linkWhatsApp, "_blank");
-    }
+    
 
     function editarItem(index) {
       const item = itemProduto[index];
