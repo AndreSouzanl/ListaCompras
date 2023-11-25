@@ -1,5 +1,4 @@
 let itemProduto = [];
-const numeroCelular = "+5531984055730";
 let modoEdicao = false;
 let itemEditandoIndex = null;
 
