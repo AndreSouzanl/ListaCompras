@@ -1,66 +1,66 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lista de Compras</title>
-    <link rel="stylesheet" href="./asstes/css/style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="./asstes/css/style.css" />
+  </head>
+  <body>
     <header>
-        <h1>Lista de Compras</h1>
+      <h1>Lista de Compras</h1>
     </header>
 
     <main>
-        <section>
-            
-            <div class="imput-container">
-                <label for="nomeProduto">Produto</label>
-                <input   type="text" id="nomeProduto" placeholder="Digite o produto" required>
-            </div>
+      <section>
+        <div class="imput-container">
+          <label for="nomeProduto">Produto</label>
+          <input
+            type="text"
+            id="nomeProduto"
+            placeholder="Digite o produto"
+            required
+          />
+        </div>
 
-            <div class="imput-container">
-                <label for="quantidadeProduto">Quantidade</label>
-                <input type="text" id="quantidadeProduto" placeholder="Digite a quantidade" required>
-            </div>
+        <div class="imput-container">
+          <label for="quantidadeProduto">Quantidade</label>
+          <input
+            type="text"
+            id="quantidadeProduto"
+            placeholder="Digite a quantidade"
+            required
+          />
+        </div>
 
-            
+        <button id="adicionarProduto" class="botao-azul">
+          Adicionar Produto
+        </button>
+      </section>
 
-            <button id="adicionarProduto" class="botao-azul">Adicionar Produto</button>
+      <section>
+        <table id="ProdutosCadastrados">
+          <caption>
+            Produto Cadastrados
+          </caption>
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th>Quantidade</th>
+              <th>Açoes</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
 
-           
-        </section>
-
-        <section>
-            <table id="ProdutosCadastrados">
-                <caption>Produto Cadastrados</caption>
-                <thead>
-                    <tr>
-                        <th>Produto</th>
-                        <th>Quantidade</th>
-                        <th>Açoes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                </tbody>
-            </table>
-        </section>
-
-
-        
-            <!-- <button id="botaoEnviar" class="botao">Enviar WhatsApp</button> -->
-    
-
-        
+      <!-- <button id="botaoEnviar" class="botao">Enviar WhatsApp</button> -->
     </main>
-    
-    
+
     <footer>
-        <p>Desenvolvido por Andre souza setembro -2023</p>
+      <p>Desenvolvido por Andre souza setembro -2023</p>
     </footer>
 
     <script src="./main/main.js"></script>
-</body>
+  </body>
 </html>

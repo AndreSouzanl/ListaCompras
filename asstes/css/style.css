@@ -1,132 +1,123 @@
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-    background-color: #007BFF;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
 }
 
 main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 section {
-    margin-bottom: 20px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
 }
 
 .input-container {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 label {
-    display: block;
-    margin-bottom:0.9rem;
+  display: block;
+  margin-bottom: 0.9rem;
 }
 
 input[type="text"] {
-    width: 95%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    margin-bottom:0.8rem;
-    outline: none;
-    font-size:17px
-   
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 0.8rem;
+  outline: none;
+  font-size: 17px;
 }
 
-
-
 button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 3px;
-    cursor: pointer;
-    width: 98%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 98%;
+  font-size: 17px;
 }
 
 button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
-.botao-Azul{
-    background-color: #0056b3;
-    
+.botao-Azul {
+  background-color: #0056b3;
 }
 
 .acao-botao {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-  
+.editar-botao {
+  background-color: #28a745;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
 
-  .editar-botao {
-    background-color: #28a745;
-    margin-right: 5px;
-    margin-bottom: 10px;
-  }
+.botao-red {
+  background-color: #dc3545;
+}
 
-  .botao-red{
-    background-color: #dc3545;
-  }
-
-  .botao-red:hover{
-    background-color: #dc3545;
-  }
-
-
+.botao-red:hover {
+  background-color: #dc3545;
+}
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
-table, th, td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    padding-left: 15px;
+table,
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  padding-left: 15px;
 }
 
 caption {
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.botao{
-    width: 100%;
-    font-size: 1.0rem;
-    background-color: seagreen;
+.botao {
+  width: 100%;
+  font-size: 1rem;
+  background-color: seagreen;
 }
 
-.botao:hover{
-    background-color: green;
+.botao:hover {
+  background-color: green;
 }
 
-footer{
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+footer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-footer p{
-    text-align: center;
+footer p {
+  text-align: center;
 }
-
-
-
