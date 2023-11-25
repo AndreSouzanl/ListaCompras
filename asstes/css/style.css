@@ -45,6 +45,8 @@ input[type="text"] {
   font-size: 17px;
 }
 
+
+
 button {
   background-color: #007bff;
   color: white;
@@ -62,6 +64,7 @@ button:hover {
 
 .botao-Azul {
   background-color: #0056b3;
+  
 }
 
 .acao-botao {
@@ -77,6 +80,7 @@ button:hover {
 
 .botao-red {
   background-color: #dc3545;
+  width:100%;
 }
 
 .botao-red:hover {
@@ -120,4 +124,10 @@ footer {
 
 footer p {
   text-align: center;
+}
+
+@media screen and (max-width:767px){
+    button{
+        width: 101%;
+    }
 }
