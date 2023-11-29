@@ -26,10 +26,6 @@ section {
   padding: 20px;
 }
 
-.input-container {
-  margin-bottom: 15px;
-}
-
 label {
   display: block;
   margin-bottom: 0.9rem;
@@ -87,7 +83,6 @@ button:hover {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
 }
 
 table,
