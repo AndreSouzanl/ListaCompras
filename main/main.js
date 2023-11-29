@@ -36,9 +36,10 @@ document
         quantidadeProduto,
       };
       itemProduto.push(itensProduto);
+      itemProduto.sort((a, b) => a.nomeProduto.localeCompare(b.nomeProduto));
       atualizarTabela();
     }
-
+     
     document.getElementById("nomeProduto").value = "";
     document.getElementById("quantidadeProduto").value = "";
   });
@@ -113,6 +114,7 @@ function atualizarTabela() {
 
   // Adicione a chamada para atualizarLocalStorage() ao final da função
   atualizarLocalStorage();
+ 
 }
 
 const botaoEnviar = document.getElementById("botaoEnviar");
