@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lista de Compras</title>
-    <link rel="stylesheet" href="./asstes/css/fontawesome.css" />
+    <!-- <link rel="stylesheet" href="./asstes/css/fontawesome.css" /> -->
     <link rel="stylesheet" href="./asstes/css/style.css" />
   </head>
   <body>
@@ -32,6 +32,16 @@
             placeholder="Digite a quantidade"
             required
           />
+          <select id="unidadeMedida">
+            <option value="">Selecione a unidade</option>
+            <option value="kilo">kilo</option>
+            <option value="grama">gramas</option>
+            <option value="Litro">Litros</option>
+            <option value="mililitro">mililitro</option>
+            <option value="pacote(s)">pacote(s)</option>
+            <option value="unindade(s)">unidade(s)</option>
+            <!-- Adicione outras unidades conforme necessário -->
+        </select>
         </div>
 
         <button id="adicionarProduto" class="botao-azul">

@@ -15,25 +15,28 @@ document
   .getElementById("adicionarProduto")
   .addEventListener("click", function () {
     const nomeProduto = document.getElementById("nomeProduto").value;
-    const quantidadeProduto =
+    const quantidade =
       document.getElementById("quantidadeProduto").value;
-
+    const unidade = document.getElementById("unidadeMedida").value
+    
     if (modoEdicao) {
       // Editar o item existente
       itemProduto[itemEditandoIndex].nomeProduto = nomeProduto;
-      itemProduto[itemEditandoIndex].quantidadeProduto = quantidadeProduto;
+      itemProduto[itemEditandoIndex].quantidadeProduto = quantidade;
+      itemProduto[itemEditandoIndex].unidade = unidade
       modoEdicao = false;
       itemEditandoIndex = null;
-      atualizarTabela();
+      atualizarTabela(itemProduto);
     } else {
       // Adicionar um novo item
-      if (nomeProduto.trim() === "" || quantidadeProduto.trim() === "") {
+      if (nomeProduto.trim() === "" || quantidade.trim() === "") {
         alert("Por favor, preencha todos os campos.");
         return;
       }
       const itensProduto = {
         nomeProduto,
-        quantidadeProduto,
+        quantidadeProduto: quantidade,
+        unidade
       };
       itemProduto.push(itensProduto);
       itemProduto.sort((a, b) => a.nomeProduto.localeCompare(b.nomeProduto));
@@ -42,6 +45,7 @@ document
      
     document.getElementById("nomeProduto").value = "";
     document.getElementById("quantidadeProduto").value = "";
+    document.getElementById("unidadeMedida").value = "";
   });
 
 // function EnviarWhattapp() {
@@ -92,7 +96,10 @@ function atualizarTabela() {
     const celulaQuantidade = novaLinha.insertCell(1);
     const acoes = novaLinha.insertCell(2);
     celularProduto.textContent = item.nomeProduto;
-    celulaQuantidade.textContent = item.quantidadeProduto;
+    celulaQuantidade.textContent = `${item.quantidadeProduto} ${item.unidade}`; // Concatena quantidade e unidade em uma única string
+   
+    
+
 
     const botaoEditar = document.createElement("button");
     botaoEditar.textContent = "Editar";

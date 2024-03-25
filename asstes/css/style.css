@@ -31,16 +31,41 @@ label {
   margin-bottom: 0.9rem;
 }
 
-input[type="text"] {
-  width: 95%;
+input[type="number"] {
+  width: 100%; /* Define a largura total */
+  padding: 10x; /* Adiciona um preenchimento interno */
+  border: 1px solid #ccc; /* Adiciona uma borda */
+  border-radius: 3px; /* Arredonda as bordas */
+  margin-bottom: 10px; /* Adiciona um espaço inferior entre os inputs/selects */
+  box-sizing: border-box; /* Garante que a largura inclua o preenchimento e a borda */
+  font-size: 16px; /* Define o tamanho da fonte */
+  
+}
+.imput-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.imput-container input[type="text"],
+.imput-container select {
+  width: 95%; /* Define a largura total */
+  padding: 10px; /* Adiciona um preenchimento interno */
+  border: 1px solid #ccc; /* Adiciona uma borda */
+  border-radius: 3px; /* Arredonda as bordas */
+  margin-bottom: 10px; /* Adiciona um espaço inferior entre os inputs/selects */
+  box-sizing: border-box; /* Garante que a largura inclua o preenchimento e a borda */
+  font-size: 16px; /* Define o tamanho da fonte */
+}
+select#unidadeMedida {
+  width: 95%; /* Ajuste de largura */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
-  margin-bottom: 0.8rem;
+  margin-left: 0px; /* Espaçamento entre o input e o select */
   outline: none;
-  font-size: 17px;
+  font-size: 16px;
+  margin-top: 5px;
 }
-
 button {
   background-color: #007bff;
   color: white;
@@ -48,8 +73,9 @@ button {
   padding: 10px 20px;
   border-radius: 3px;
   cursor: pointer;
-  width: 98%;
+  width: 95%;
   font-size: 17px;
+  margin-top: 20px;
 }
 
 button:hover {
@@ -80,23 +106,24 @@ button:hover {
   background-color: #dc3545;
 }
 
+/* Estilo da Tabela */
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-bottom: 20px; /* Espaçamento inferior para a seção da tabela */
 }
 
-table,
-th,
-td {
+table th, table td {
   border: 1px solid #ccc;
-  padding: 10px;
-  padding-left: 15px;
+  padding: 10px; /* Ajuste do padding */
+  text-align: left;
 }
 
 caption {
   font-weight: bold;
   margin-bottom: 10px;
 }
+
 
 .botao {
   width: 100%;
