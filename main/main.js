@@ -2,7 +2,7 @@ let itemProduto = [];
 let modoEdicao = false;
 let itemEditandoIndex = null;
 
-const backendURL = 'https://lista-compras-eight.vercel.app/'; // substitua pelo URL real do seu projeto no Vercel
+const backendURL = 'https://lista-compras-eight.vercel.app'; // substitua pelo URL real do seu projeto no Vercel
 
 document
   .getElementById("adicionarProduto")
