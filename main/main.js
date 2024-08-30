@@ -2,7 +2,7 @@ let itemProduto = [];
 let modoEdicao = false;
 let itemEditandoIndex = null;
 
-const backendURL = 'https://lista-compras-eight.vercel.app'; 
+const backendURL = 'lista-compras-nxy1-jy7h0j5g1-andresouzanls-projects.vercel.app'; 
 
 document
   .getElementById("adicionarProduto")
