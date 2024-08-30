@@ -1,22 +1,29 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://lista-compras-eight.vercel.app/",
+  })
+);
 
 app.use(express.json());
 
 // conecta o MogoDB
-mongoose.connect("process.env.MONGODB_URI,", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => {
-  console.log("Conectado ao MongoDB com sucesso!");
-}).catch((error) => {
-  console.error("Erro ao conectar ao MongoDB:", error);
-});
+mongoose
+  .connect("process.env.MONGODB_URI,", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Conectado ao MongoDB com sucesso!");
+  })
+  .catch((error) => {
+    console.error("Erro ao conectar ao MongoDB:", error);
+  });
 
 // Defina o schema e modelo do produto
 const produtoSchema = new mongoose.Schema({
@@ -44,7 +51,7 @@ app.get("/produtos", async (req, res) => {
     const produtos = await Produto.find();
     res.json(produtos);
   } catch (error) {
-    res.status(500).json({ message: 'Erro ao buscar produtos', error });
+    res.status(500).json({ message: "Erro ao buscar produtos", error });
   }
 });
 
@@ -58,10 +65,9 @@ app.put("/produtos/:id", async (req, res) => {
     );
     res.json(produtoAtualizado);
   } catch (error) {
-    res.status(400).json({ message: 'Erro ao atualizar produto', error });
+    res.status(400).json({ message: "Erro ao atualizar produto", error });
   }
 });
-
 
 // Rota para excluir um produto
 app.delete("/produtos/:id", async (req, res) => {
@@ -69,10 +75,9 @@ app.delete("/produtos/:id", async (req, res) => {
     await Produto.findByIdAndDelete(req.params.id);
     res.json({ message: "Produto excluído com sucesso!" });
   } catch (error) {
-    res.status(400).json({ message: 'Erro ao excluir produto', error });
+    res.status(400).json({ message: "Erro ao excluir produto", error });
   }
 });
-
 
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);

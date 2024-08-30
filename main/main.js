@@ -2,6 +2,8 @@ let itemProduto = [];
 let modoEdicao = false;
 let itemEditandoIndex = null;
 
+const backendURL = 'https://lista-compras-eight.vercel.app/'; // substitua pelo URL real do seu projeto no Vercel
+
 document
   .getElementById("adicionarProduto")
   .addEventListener("click", async function () {
@@ -24,7 +26,7 @@ document
     try {
       if (modoEdicao) {
         await fetch(
-          `http://localhost:3000/produtos/${itemProduto[itemEditandoIndex]._id}`,
+          `${backendURL}/produtos/${itemProduto[itemEditandoIndex]._id}`,
           {
             method: "PUT",
             headers: {
@@ -36,7 +38,7 @@ document
         modoEdicao = false;
         itemEditandoIndex = null;
       } else {
-        await fetch("http://localhost:3000/produtos", {
+        await fetch(`${backendURL}/produtos`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -57,7 +59,7 @@ document
 
 async function carregarProdutos() {
   try {
-    const response = await fetch("http://localhost:3000/produtos");
+    const response = await fetch(`${backendURL}/produtos"`);
     if (!response.ok) {
       throw new Error("Erro na resposta da rede");
     }
@@ -79,7 +81,7 @@ function editarItem(index) {
 }
 
 async function excluirItem(index) {
-  await fetch(`http://localhost:3000/produtos/${itemProduto[index]._id}`, {
+  await fetch(`${backendURL}/produtos/${itemProduto[index]._id}`, {
     method: "DELETE",
   });
   carregarProdutos();
