@@ -58,7 +58,7 @@ document
   });
 
 async function carregarProdutos() {
-  try {
+  // try {
     const response = await fetch(`${backendURL}/produtos`);
     // if (!response.ok) {
     //   throw new Error("Erro na resposta da rede");
@@ -66,9 +66,9 @@ async function carregarProdutos() {
     itemProduto = await response.json();
     itemProduto.sort((a, b) => a.nomeProduto.localeCompare(b.nomeProduto));
     atualizarTabela();
-  } catch (error) {
-    console.error("Erro ao carregar produtos:", error);
-  }
+  // } catch (error) {
+  //   console.error("Erro ao carregar produtos:", error);
+  // }
 }
 
 function editarItem(index) {
