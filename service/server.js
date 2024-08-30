@@ -2,15 +2,14 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 app.use(cors());
 
 app.use(express.json());
 
 // conecta o MogoDB
-mongoose
-  .connect("process.env.MONGODB_URI,", {
+mongoose.connect("mongodb+srv://devsouza:80584195als2%40@cluster0.o0qm3.mongodb.net/produtosDB?retryWrites=true&w=majority=Cluster0", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
