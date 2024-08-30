@@ -59,7 +59,7 @@ document
 
 async function carregarProdutos() {
   try {
-    const response = await fetch(`${backendURL}/produtos"`);
+    const response = await fetch(`${backendURL}/produtos`);
     if (!response.ok) {
       throw new Error("Erro na resposta da rede");
     }
