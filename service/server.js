@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 // conecta o MogoDB
-mongoose.connect("mongodb+srv://devsouza:80584195als2%40@cluster0.o0qm3.mongodb.net/produtosDB?retryWrites=true&w=majority=Cluster0", {
+mongoose.connect("process.env.MONGODB_URI,", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
