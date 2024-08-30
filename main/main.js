@@ -2,7 +2,7 @@ let itemProduto = [];
 let modoEdicao = false;
 let itemEditandoIndex = null;
 
-const backendURL = 'https://lista-compras-eight.vercel.app'; // substitua pelo URL real do seu projeto no Vercel
+const backendURL = 'https://lista-compras-eight.vercel.app'; 
 
 document
   .getElementById("adicionarProduto")
@@ -60,9 +60,9 @@ document
 async function carregarProdutos() {
   try {
     const response = await fetch(`${backendURL}/produtos`);
-    if (!response.ok) {
-      throw new Error("Erro na resposta da rede");
-    }
+    // if (!response.ok) {
+    //   throw new Error("Erro na resposta da rede");
+    // }
     itemProduto = await response.json();
     itemProduto.sort((a, b) => a.nomeProduto.localeCompare(b.nomeProduto));
     atualizarTabela();
