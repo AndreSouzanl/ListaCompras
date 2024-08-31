@@ -26,7 +26,7 @@ document
     try {
       if (modoEdicao) {
         await fetch(
-          `${API_URL}/${itemProduto[itemEditandoIndex]._id}`,
+          `${API_URL}/produtos${itemProduto[itemEditandoIndex]._id}`,
           {
             method: "PUT",
             headers: {
@@ -38,7 +38,7 @@ document
         modoEdicao = false;
         itemEditandoIndex = null;
       } else {
-        await fetch(`${API_URL}`, {
+        await fetch(`${API_URL}/produtos`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -59,7 +59,7 @@ document
 
 async function carregarProdutos() {
   // try {
-  const response = await fetch(`${API_URL}`);
+  const response = await fetch(`${API_URL}/produtos`);
   // if (!response.ok) {
   //   throw new Error("Erro na resposta da rede");
   // }
