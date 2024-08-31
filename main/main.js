@@ -25,7 +25,7 @@ document
 
     try {
       if (modoEdicao) {
-        await fetch(
+         await fetch(
           `${API_URL}/produtos/${itemProduto[itemEditandoIndex]._id}`,
           {
             method: "PUT",
@@ -35,6 +35,7 @@ document
             body: JSON.stringify(produto),
           }
         );
+        
         modoEdicao = false;
         itemEditandoIndex = null;
       } else {
