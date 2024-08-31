@@ -38,7 +38,7 @@ document
         modoEdicao = false;
         itemEditandoIndex = null;
       } else {
-        await fetch(`${API_URL}/produtos`, {
+        await fetch(`${API_URL}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
