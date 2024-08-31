@@ -59,17 +59,17 @@ document
   });
 
 async function carregarProdutos() {
-  // try {
+   try {
   const response = await fetch(`${API_URL}/produtos`);
-  // if (!response.ok) {
-  //   throw new Error("Erro na resposta da rede");
-  // }
-  itemProduto = await response.json();
-  itemProduto.sort((a, b) => a.nomeProduto.localeCompare(b.nomeProduto));
-  atualizarTabela();
-  // } catch (error) {
-  //   console.error("Erro ao carregar produtos:", error);
-  // }
+  if (!response.ok) {
+    throw new Error("Erro na resposta da rede");
+  }
+    itemProduto = await response.json();
+    itemProduto.sort((a, b) => a.nomeProduto.localeCompare(b.nomeProduto));
+    atualizarTabela();
+  }catch (error) {
+    console.error("Erro ao carregar produtos:", error);
+  }
 }
 
 function editarItem(index) {
