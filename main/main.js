@@ -2,7 +2,7 @@ let itemProduto = [];
 let modoEdicao = false;
 let itemEditandoIndex = null;
 
-const API_URL = "https://lista-compras-eight.vercel.app/produtos";
+const API_URL = "https://lista-compras-eight.vercel.app//produtos";
 
 document
   .getElementById("adicionarProduto")
