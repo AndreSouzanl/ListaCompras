@@ -26,7 +26,7 @@ document
     try {
       if (modoEdicao) {
         await fetch(
-          `${API_URL}/produtos${itemProduto[itemEditandoIndex]._id}`,
+          `${API_URL}/produtos/${itemProduto[itemEditandoIndex]._id}`,
           {
             method: "PUT",
             headers: {
