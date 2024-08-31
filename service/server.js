@@ -3,7 +3,10 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 const uri = process.env.MONGODB_URI;
-const port = 3000;
+app.use(cors({
+  origin: 'https://lista-compras-eight.vercel.app'
+}));
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 
