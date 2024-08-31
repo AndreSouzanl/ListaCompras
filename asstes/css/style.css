@@ -77,14 +77,6 @@ button {
   margin-top: 20px;
 }
 
-button:hover {
-  background-color: #0056b3;
-}
-
-.botao-Azul {
-  background-color: #0056b3;
-}
-
 .acao-botao {
   display: flex;
   justify-content: center;
@@ -93,7 +85,7 @@ button:hover {
 }
 
 .editar-botao {
-  background-color: #28a745;
+  /* background-color: #28a745; */
   margin-right: 5px;
   margin-bottom: 10px;
   color: white;
@@ -113,10 +105,6 @@ button:hover {
   font-size: 30px;
 }
 
-.botao-red:hover {
-  background-color: #dc3545;
-}
-
 /* Estilo da Tabela */
 table {
   width: 100%;
@@ -128,7 +116,7 @@ table th,
 table td {
   border: 1px solid #ccc;
   padding: 10px; /* Ajuste do padding */
-  text-align: left;
+  text-align: center;
 }
 
 caption {
@@ -179,11 +167,9 @@ footer p {
   .botao-red {
     width: 100%;
     background-color: red;
-   
   }
   .editar-botao {
     width: 100%;
-    background-color:#28a745;
-    
+    background-color: #28a745;
   }
 }

@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
+const uri = process.env.MONGODB_URI;
 const port = 3000;
 
 app.use(cors());
@@ -9,15 +10,15 @@ app.use(cors());
 app.use(express.json());
 
 // conecta o MogoDB
-mongoose.connect("mongodb+srv://devsouza:80584195als2%40@cluster0.o0qm3.mongodb.net/produtosDB?retryWrites=true&w=majority=Cluster0", {
+mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("Conectado ao MongoDB com sucesso!");
+    console.log("Conectado ao MongoDB Atlas!");
   })
   .catch((error) => {
-    console.error("Erro ao conectar ao MongoDB:", error);
+    console.error("Erro ao conectar ao MongoDB Atlas:", error);
   });
 
 // Defina o schema e modelo do produto

@@ -2,8 +2,7 @@ let itemProduto = [];
 let modoEdicao = false;
 let itemEditandoIndex = null;
 
-
-
+const API_URL = "https://lista-compras-eight.vercel.app/produtos";
 
 document
   .getElementById("adicionarProduto")
@@ -27,7 +26,7 @@ document
     try {
       if (modoEdicao) {
         await fetch(
-          `http://localhost:3000/produtos/${itemProduto[itemEditandoIndex]._id}`,
+          `${API_URL}/${itemProduto[itemEditandoIndex]._id}`,
           {
             method: "PUT",
             headers: {
@@ -39,7 +38,7 @@ document
         modoEdicao = false;
         itemEditandoIndex = null;
       } else {
-        await fetch(`http://localhost:3000/produtos`, {
+        await fetch(`${API_URL}/produtos`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -60,13 +59,13 @@ document
 
 async function carregarProdutos() {
   // try {
-    const response = await fetch(`http://localhost:3000/produtos`);
-    // if (!response.ok) {
-    //   throw new Error("Erro na resposta da rede");
-    // }
-    itemProduto = await response.json();
-    itemProduto.sort((a, b) => a.nomeProduto.localeCompare(b.nomeProduto));
-    atualizarTabela();
+  const response = await fetch(`${API_URL}`);
+  // if (!response.ok) {
+  //   throw new Error("Erro na resposta da rede");
+  // }
+  itemProduto = await response.json();
+  itemProduto.sort((a, b) => a.nomeProduto.localeCompare(b.nomeProduto));
+  atualizarTabela();
   // } catch (error) {
   //   console.error("Erro ao carregar produtos:", error);
   // }
@@ -82,7 +81,7 @@ function editarItem(index) {
 }
 
 async function excluirItem(index) {
-  await fetch(`http://localhost:3000/produtos/${itemProduto[index]._id}`, {
+  await fetch(`${API_URL}/${itemProduto[index]._id}`, {
     method: "DELETE",
   });
   carregarProdutos();
