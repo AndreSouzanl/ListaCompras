@@ -23,7 +23,7 @@ section {
   background-color: white;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
+  padding: 5px;
 }
 
 label {
@@ -39,7 +39,6 @@ input[type="number"] {
   margin-bottom: 10px; /* Adiciona um espaço inferior entre os inputs/selects */
   box-sizing: border-box; /* Garante que a largura inclua o preenchimento e a borda */
   font-size: 16px; /* Define o tamanho da fonte */
-  
 }
 .imput-container {
   display: flex;
@@ -88,6 +87,8 @@ button:hover {
 
 .acao-botao {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 
@@ -95,11 +96,21 @@ button:hover {
   background-color: #28a745;
   margin-right: 5px;
   margin-bottom: 10px;
+  color: white;
 }
 
 .botao-red {
   background-color: #dc3545;
   width: 100%;
+  color: white;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+.botao-red i {
+  margin-right: 8px;
+  font-size: 30px;
 }
 
 .botao-red:hover {
@@ -113,7 +124,8 @@ table {
   margin-bottom: 20px; /* Espaçamento inferior para a seção da tabela */
 }
 
-table th, table td {
+table th,
+table td {
   border: 1px solid #ccc;
   padding: 10px; /* Ajuste do padding */
   text-align: left;
@@ -124,11 +136,16 @@ caption {
   margin-bottom: 10px;
 }
 
-
 .botao {
   width: 100%;
   font-size: 1rem;
   background-color: seagreen;
+  border-radius: 5px;
+}
+
+.botao i {
+  margin-right: 8px;
+  font-size: 30px;
 }
 
 .botao:hover {
@@ -148,5 +165,25 @@ footer p {
 @media screen and (max-width: 767px) {
   button {
     width: 101%;
+  }
+
+  table {
+    width: 100%;
+  }
+  .acao-botao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .botao-red {
+    width: 100%;
+    background-color: red;
+   
+  }
+  .editar-botao {
+    width: 100%;
+    background-color:#28a745;
+    
   }
 }

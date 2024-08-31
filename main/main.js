@@ -105,11 +105,13 @@ function atualizarTabela() {
     const botaoEditar = document.createElement("button");
     botaoEditar.textContent = "Editar";
     botaoEditar.classList.add("botao", "editar-botao");
+    botaoEditar.innerHTML = '<i class="fas fa-edit"></i>';
     botaoEditar.addEventListener("click", () => editarItem(i));
 
     const botaoExcluir = document.createElement("button");
     botaoExcluir.textContent = "Excluir";
     botaoExcluir.classList.add("botao-red", "excluir-botao");
+    botaoExcluir.innerHTML = '<i class="fas fa-trash-alt"></i>';
     botaoExcluir.addEventListener("click", () => excluirItem(i));
 
     const divAcoes = document.createElement("div");
