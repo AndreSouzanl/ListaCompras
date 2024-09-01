@@ -39,7 +39,7 @@ document
         modoEdicao = false;
         itemEditandoIndex = null;
       } else {
-        await fetch(`${API_URL}/produtos/`, {
+        await fetch(`${API_URL}/produtos`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -54,13 +54,13 @@ document
 
       carregarProdutos();
     } catch (error) {
-      console.error("Erro ao adicionar/atualizar produto:", error);
+      console.error("Erro ao adicionar atualizar produto:", error);
     }
   });
 
 async function carregarProdutos() {
    try {
-  const response = await fetch(`${API_URL}/produtos/`);
+  const response = await fetch(`${API_URL}/produtos`);
   if (!response.ok) {
     throw new Error("Erro na resposta da rede");
   }
