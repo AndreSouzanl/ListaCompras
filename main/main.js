@@ -25,7 +25,7 @@ document
 
     try {
       if (modoEdicao) {
-         await fetch(
+        response =  await fetch(
           `${API_URL}/produtos/${itemProduto[itemEditandoIndex]._id}`,
           {
             method: "PUT",
@@ -39,13 +39,16 @@ document
         modoEdicao = false;
         itemEditandoIndex = null;
       } else {
-        await fetch(`${API_URL}/produtos`, {
+       response =  await fetch(`${API_URL}/produtos`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(produto),
         });
+      }
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.statusText}`);
       }
 
       document.getElementById("nomeProduto").value = "";
@@ -60,10 +63,10 @@ document
 
 async function carregarProdutos() {
    try {
-  const response = await fetch(`${API_URL}/produtos`);
-  if (!response.ok) {
-    throw new Error("Erro na resposta da rede");
-  }
+    const response = await fetch(`${API_URL}/produtos`);
+    if (!response.ok) {
+      throw new Error("Erro na resposta da rede");
+    }
     itemProduto = await response.json();
     itemProduto.sort((a, b) => a.nomeProduto.localeCompare(b.nomeProduto));
     atualizarTabela();
@@ -82,10 +85,17 @@ function editarItem(index) {
 }
 
 async function excluirItem(index) {
-  await fetch(`${API_URL}/${itemProduto[index]._id}`, {
-    method: "DELETE",
-  });
-  carregarProdutos();
+  try {
+    const response = await fetch(`${API_URL}/produtos/${itemProduto[index]._id}`, {
+      method: "DELETE",
+    });
+    if (!response.ok) {
+      throw new Error("Erro ao excluir produto");
+    }
+    carregarProdutos();
+  } catch (error) {
+    console.error("Erro ao excluir produto:", error);
+  }
 }
 
 function atualizarTabela() {
