@@ -24,6 +24,8 @@ document
     };
 
     try {
+      let response;
+      
       if (modoEdicao) {
         response =  await fetch(
           `${API_URL}/produtos/${itemProduto[itemEditandoIndex]._id}`,
