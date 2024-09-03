@@ -25,7 +25,7 @@ document
 
     try {
       let response;
-      
+
       if (modoEdicao) {
         response =  await fetch(
           `${API_URL}/produtos/${itemProduto[itemEditandoIndex]._id}`,
@@ -49,6 +49,7 @@ document
           body: JSON.stringify(produto),
         });
       }
+      
       if (!response.ok) {
         throw new Error(`Erro na requisição: ${response.statusText}`);
       }
