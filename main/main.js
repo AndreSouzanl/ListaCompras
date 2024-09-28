@@ -1,17 +1,12 @@
-let itemProduto = [];
+// let itemProduto = JSON.parse(localStorage.getItem('produtos')) || [];
 let modoEdicao = false;
 let itemEditandoIndex = null;
 
-const API_URL = "https://lista-compras-eight.vercel.app";
-
-document
-  .getElementById("adicionarProduto")
-  .addEventListener("click", async function () {
+document.getElementById("adicionarProduto").addEventListener("click", function () {
     const nomeProduto = document.getElementById("nomeProduto").value;
     const quantidade = document.getElementById("quantidadeProduto").value;
     const unidade = document.getElementById("unidadeMedida").value;
 
-    //   // Adicionar um novo item
     if (nomeProduto.trim() === "" || quantidade.trim() === "") {
       alert("Por favor, preencha todos os campos.");
       return;
@@ -23,59 +18,28 @@ document
       unidade,
     };
 
-    try {
-      let response;
-
-      if (modoEdicao) {
-        response =  await fetch(
-          `${API_URL}/produtos/${itemProduto[itemEditandoIndex]._id}`,
-          {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(produto),
-          }
-        );
-        
-        modoEdicao = false;
-        itemEditandoIndex = null;
-      } else {
-       response =  await fetch(`${API_URL}/produtos`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(produto),
-        });
-      }
-      
-      if (!response.ok) {
-        throw new Error(`Erro na requisição: ${response.statusText}`);
-      }
-
-      document.getElementById("nomeProduto").value = "";
-      document.getElementById("quantidadeProduto").value = "";
-      document.getElementById("unidadeMedida").value = "";
-
-      carregarProdutos();
-    } catch (error) {
-      console.error("Erro ao adicionar atualizar produto:", error);
+    if (modoEdicao) {
+      itemProduto[itemEditandoIndex] = produto;
+      modoEdicao = false;
+      itemEditandoIndex = null;
+    } else {
+      itemProduto.push(produto);
     }
+
+    // Salvar no localStorage
+    localStorage.setItem('produtos', JSON.stringify(itemProduto));
+
+    document.getElementById("nomeProduto").value = "";
+    document.getElementById("quantidadeProduto").value = "";
+    document.getElementById("unidadeMedida").value = "";
+
+    atualizarTabela();
   });
 
-async function carregarProdutos() {
-   try {
-    const response = await fetch(`${API_URL}/produtos`);
-    if (!response.ok) {
-      throw new Error("Erro na resposta da rede");
-    }
-    itemProduto = await response.json();
-    itemProduto.sort((a, b) => a.nomeProduto.localeCompare(b.nomeProduto));
-    atualizarTabela();
-  }catch (error) {
-    console.error("Erro ao carregar produtos:", error);
-  }
+function carregarProdutos() {
+  itemProduto = JSON.parse(localStorage.getItem('produtos')) || [];
+  itemProduto.sort((a, b) => a.nomeProduto.localeCompare(b.nomeProduto));
+  atualizarTabela();
 }
 
 function editarItem(index) {
@@ -87,18 +51,13 @@ function editarItem(index) {
   itemEditandoIndex = index;
 }
 
-async function excluirItem(index) {
-  try {
-    const response = await fetch(`${API_URL}/produtos/${itemProduto[index]._id}`, {
-      method: "DELETE",
-    });
-    if (!response.ok) {
-      throw new Error("Erro ao excluir produto");
-    }
-    carregarProdutos();
-  } catch (error) {
-    console.error("Erro ao excluir produto:", error);
-  }
+function excluirItem(index) {
+  itemProduto.splice(index, 1);
+
+  // Atualizar no localStorage
+  localStorage.setItem('produtos', JSON.stringify(itemProduto));
+
+  atualizarTabela();
 }
 
 function atualizarTabela() {
@@ -135,4 +94,5 @@ function atualizarTabela() {
     acoes.appendChild(divAcoes);
   });
 }
+
 window.onload = carregarProdutos;
