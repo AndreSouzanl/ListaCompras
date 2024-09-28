@@ -1,43 +1,46 @@
-// let itemProduto = JSON.parse(localStorage.getItem('produtos')) || [];
+const { LocalStorage } = require('node-localstorage');
+const localStorage = new LocalStorage('./scratch');
+
+let itemProduto = JSON.parse(localStorage.getItem("produtos")) || [];
 let modoEdicao = false;
 let itemEditandoIndex = null;
 
 document.getElementById("adicionarProduto").addEventListener("click", function () {
-    const nomeProduto = document.getElementById("nomeProduto").value;
-    const quantidade = document.getElementById("quantidadeProduto").value;
-    const unidade = document.getElementById("unidadeMedida").value;
+  const nomeProduto = document.getElementById("nomeProduto").value;
+  const quantidade = document.getElementById("quantidadeProduto").value;
+  const unidade = document.getElementById("unidadeMedida").value;
 
-    if (nomeProduto.trim() === "" || quantidade.trim() === "") {
-      alert("Por favor, preencha todos os campos.");
-      return;
-    }
+  if (nomeProduto.trim() === "" || quantidade.trim() === "") {
+    alert("Por favor, preencha todos os campos.");
+    return;
+  }
 
-    const produto = {
-      nomeProduto,
-      quantidadeProduto: quantidade,
-      unidade,
-    };
+  const produto = {
+    nomeProduto,
+    quantidadeProduto: quantidade,
+    unidade,
+  };
 
-    if (modoEdicao) {
-      itemProduto[itemEditandoIndex] = produto;
-      modoEdicao = false;
-      itemEditandoIndex = null;
-    } else {
-      itemProduto.push(produto);
-    }
+  if (modoEdicao) {
+    itemProduto[itemEditandoIndex] = produto;
+    modoEdicao = false;
+    itemEditandoIndex = null;
+  } else {
+    itemProduto.push(produto);
+  }
 
-    // Salvar no localStorage
-    localStorage.setItem('produtos', JSON.stringify(itemProduto));
+  // Salvar no localStorage
+  localStorage.setItem("produtos", JSON.stringify(itemProduto));
 
-    document.getElementById("nomeProduto").value = "";
-    document.getElementById("quantidadeProduto").value = "";
-    document.getElementById("unidadeMedida").value = "";
+  document.getElementById("nomeProduto").value = "";
+  document.getElementById("quantidadeProduto").value = "";
+  document.getElementById("unidadeMedida").value = "";
 
-    atualizarTabela();
-  });
+  atualizarTabela();
+});
 
 function carregarProdutos() {
-  itemProduto = JSON.parse(localStorage.getItem('produtos')) || [];
+  itemProduto = JSON.parse(localStorage.getItem("produtos")) || [];
   itemProduto.sort((a, b) => a.nomeProduto.localeCompare(b.nomeProduto));
   atualizarTabela();
 }
@@ -55,7 +58,7 @@ function excluirItem(index) {
   itemProduto.splice(index, 1);
 
   // Atualizar no localStorage
-  localStorage.setItem('produtos', JSON.stringify(itemProduto));
+  localStorage.setItem("produtos", JSON.stringify(itemProduto));
 
   atualizarTabela();
 }
