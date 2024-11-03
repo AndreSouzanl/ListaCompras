@@ -112,7 +112,7 @@ button {
 
 .botao i {
   font-size: 40px;
-  color: black;
+  color:seagreen
 }
 
 /* Estilo da Tabela */
@@ -164,6 +164,7 @@ footer p {
     display: flex;
     justify-content: center;
     align-items: center;
+    
   }
   .botao-red {
     width: 100%;
@@ -171,6 +172,7 @@ footer p {
   }
   .editar-botao {
     width: 100%;
+  
    
   }
 }
