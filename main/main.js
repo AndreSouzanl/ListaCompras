@@ -93,6 +93,7 @@ function atualizarTabela() {
     divAcoes.classList.add("acao-botao");
     divAcoes.appendChild(botaoEditar);
     divAcoes.appendChild(botaoExcluir);
+   
 
     acoes.appendChild(divAcoes);
   });

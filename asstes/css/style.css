@@ -66,7 +66,6 @@ select#unidadeMedida {
   margin-top: 5px;
 }
 button {
-  
   color: white;
   border: none;
   padding: 10px 20px;
@@ -83,8 +82,8 @@ button {
   align-items: center;
   flex-direction: column;
 }
-.botao-azul{
-  background-color: #007bff; 
+.botao-azul {
+  background-color: #007bff;
 }
 
 .editar-botao {
@@ -103,12 +102,15 @@ button {
   margin-bottom: 10px;
   align-items: center;
   justify-content: center;
-  display:flex;
+  display: flex;
 }
 
 .botao-red i {
-  margin-right: 8px;
-  font-size: 30px;
+  font-size: 40px;
+}
+
+.botao i {
+  font-size: 40px;
 }
 
 /* Estilo da Tabela */
@@ -135,15 +137,7 @@ caption {
   font-size: 1rem;
   background-color: seagreen;
   border-radius: 5px;
-  
 }
-
-.botao i {
-  margin-right: 8px;
-  font-size: 30px;
-}
-
-
 
 footer {
   max-width: 800px;
