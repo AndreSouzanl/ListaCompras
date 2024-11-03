@@ -1,5 +1,5 @@
-const { LocalStorage } = require('node-localstorage');
-const localStorage = new LocalStorage('./scratch');
+// const { LocalStorage } = require('node-localstorage');
+// const localStorage = new LocalStorage('./scratch');
 
 let itemProduto = JSON.parse(localStorage.getItem("produtos")) || [];
 let modoEdicao = false;
