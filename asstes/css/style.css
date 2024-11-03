@@ -66,7 +66,7 @@ select#unidadeMedida {
   margin-top: 5px;
 }
 button {
-  background-color: #007bff;
+  
   color: white;
   border: none;
   padding: 10px 20px;
@@ -83,6 +83,9 @@ button {
   align-items: center;
   flex-direction: column;
 }
+.botao-azul{
+  background-color: #007bff; 
+}
 
 .editar-botao {
   /* background-color: #28a745; */
@@ -93,11 +96,14 @@ button {
 
 .botao-red {
   background-color: #dc3545;
-  width: 100%;
+  width: 30%;
   color: white;
   border-radius: 5px;
   margin-right: 5px;
   margin-bottom: 10px;
+  align-items: center;
+  justify-content: center;
+  display:flex;
 }
 
 .botao-red i {
@@ -125,10 +131,11 @@ caption {
 }
 
 .botao {
-  width: 100%;
+  width: 30%;
   font-size: 1rem;
   background-color: seagreen;
   border-radius: 5px;
+  
 }
 
 .botao i {
@@ -136,9 +143,7 @@ caption {
   font-size: 30px;
 }
 
-.botao:hover {
-  background-color: green;
-}
+
 
 footer {
   max-width: 800px;
